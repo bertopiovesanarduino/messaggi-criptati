@@ -1,0 +1,7 @@
+# Dipendenze per Client E2EE Desktop Windows
+customtkinter>=5.2.2
+cryptography>=42.0.0
+firebase-admin>=6.4.0
+pystray>=0.19.5
+pillow>=10.2.0
+pyinstaller>=6.4.0

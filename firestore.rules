@@ -1,0 +1,33 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 1. Handshake e Scambio Richieste Chat
+    match /chat_requests/{requestId} {
+      allow read: if true;
+      allow create: if request.resource.data.status == 'pending'
+                    && request.resource.data.from_guid is string
+                    && request.resource.data.to_guid is string
+                    && request.resource.data.sender_public_key is string;
+      allow update: if request.resource.data.status == 'accepted'
+                    && request.resource.data.recipient_public_key is string;
+      allow delete: if true;
+    }
+
+    // 2. Routing Cifrato Messaggi (Acknowledge & Delete)
+    match /messages/{messageId} {
+      allow read: if true;
+      allow create: if request.resource.data.ciphertext is string
+                    && request.resource.data.nonce is string
+                    && request.resource.data.sender_id is string
+                    && request.resource.data.recipient_id is string;
+      allow update: if false;
+      allow delete: if true;
+    }
+
+    // Blocca qualsiasi altra collezione non autorizzata
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

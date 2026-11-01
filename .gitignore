@@ -1,0 +1,59 @@
+# =============================================
+# SecureChat E2EE — .gitignore
+# =============================================
+
+# ----- Python -----
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+*.egg
+*.whl
+
+# ----- Virtual Environment -----
+.venv/
+venv/
+env/
+
+# ----- Build & Distribuzione (PyInstaller / Inno Setup) -----
+dist/
+build/
+packaging/build/
+packaging/dist/
+dist_installer/
+*.exe
+*.msi
+
+# ----- Credenziali Firebase (SENSIBILI — MAI pubblicare!) -----
+config/serviceAccountKey.json
+config/*.json
+!config/*.json.example
+
+# ----- Database locale e chiavi cifrate (dati utente) -----
+*.db
+*.key
+chat_vault.db
+vault.key
+
+# ----- IDE & Editor -----
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.code-workspace
+
+# ----- Sistema Operativo -----
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# ----- Varie -----
+*.log
+*.bak
+*.tmp
+*.cache
+.env
