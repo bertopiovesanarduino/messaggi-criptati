@@ -21,7 +21,6 @@ build/
 packaging/build/
 packaging/dist/
 dist_installer/
-*.exe
 *.msi
 
 
