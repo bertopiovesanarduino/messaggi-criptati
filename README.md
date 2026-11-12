@@ -155,3 +155,6 @@ sequenceDiagram
     Bob->>FS: DELETE /messages/{msg_id} (ACK Immediato)
     Bob->>Bob: Emette Notifica Desktop Windows
 ```
+
+
+Per chi volesse è stato aggiunto un setup.exe già pronto da usare!
